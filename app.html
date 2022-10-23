@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>JavaScript Prompt</h2>
+    <button onclick="Saludar()">Probar el Promp</button>
+    <p id="demo"></p>
+
+    <script>
+let isCancel= false;
+function Saludar() {
+  let texto;
+  let persona = prompt("Cual es tu fruta favorita?:");
+  //if (persona == null || persona == "") {
+  if (!persona) { 
+    texto = "El usuario canceló el promp.";
+    document.getElementById("demo").innerHTML = texto;
+    //
+    isCancel= true;
+    
+  } else {
+    texto = persona;
+    if(isCancel){
+      document.getElementById("demo").innerHTML = texto;
+      isCancel = false;
+      return;
+    }
+    document.getElementById("demo").innerHTML +=  texto + ", ";
+  }
+}
+    </script>
+</body>
+</html>
